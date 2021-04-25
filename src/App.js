@@ -40,10 +40,26 @@ const App = () => {
         },
     ];
 
+    // State objects for current question and user progress through quiz
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [showScore, setShowScore] = useState(false);
+
+    const handleAnswerButtonClick = (isCorrect) => {
+        if (isCorrect === true) {
+            alert('This answer is correct');
+        }
+        const nextQuestion = currentQuestion + 1;
+        if(nextQuestion < questions.length) {
+            setCurrentQuestion(nextQuestion);
+        } else {
+            setShowScore(true);
+        }
+    }
+
     return (
         <div className='app'>
-            {/* HINT: replace "false" with logic to display the score when the user has answered all the questions */}
-            {false ? (
+            {/* Wraps output in a ternary to check if showScore is true or false based on user progress through the quiz */}
+            {showScore ? (
                 <div className='score-section'>You scored 1 out of {questions.length}</div>
             ) : (
                 <>
@@ -51,13 +67,12 @@ const App = () => {
                         <div className='question-count'>
                             <span>Question 1</span>/{questions.length}
                         </div>
-                        <div className='question-text'>This is where the question text should go</div>
+                        <div className='question-text'>{questions[currentQuestion].questionText}</div>
                     </div>
                     <div className='answer-section'>
-                        <button>Answer 1</button>
-                        <button>Answer 2</button>
-                        <button>Answer 3</button>
-                        <button>Answer 4</button>
+                        {questions[currentQuestion].answerOptions.map((answerOption) => (
+                            <button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                        ))}
                     </div>
                 </>
             )}
