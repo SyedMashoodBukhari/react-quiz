@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans&display=swap");
 
-$montserrat: 'Montserrat', sans-serif;
-$opensans: 'Open Sans', sans-serif;
+$montserrat: "Montserrat", sans-serif;
+$opensans: "Open Sans", sans-serif;
 
 @mixin reset {
     box-sizing: border-box;
@@ -10,11 +10,119 @@ $opensans: 'Open Sans', sans-serif;
     font-family: $opensans;
     line-height: 120%;
 }
+@mixin flexBox(
+    $flexDirection: row,
+    $flexWrap: nowrap,
+    $alignItems: stretch,
+    $alignContent: normal,
+    $justifyContent: flex-start
+) {
+    display: flex;
+    flex-direction: $flexDirection;
+    flex-wrap: $flexWrap;
+    align-items: $alignItems;
+    align-content: $alignContent;
+    justify-content: $justifyContent;
+}
 
 * {
     @include reset;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: $montserrat;
     line-height: 150%;
+}
+
+/* The below is added from the Github starter files */
+body {
+    background-color: #7cc6fe;
+    @include flexBox($alignItems: center, $justifyContent: center);
+    min-height: 100vh;
+}
+
+.app {
+    background-color: #252d4a;
+    width: 450px;
+    min-height: 200px;
+    height: min-content;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+    @include flexBox($justifyContent: space-evenly);
+}
+
+.score-section {
+    font-size: 24px;
+    @include flexBox($alignItems: center)
+}
+
+/* QUESTION/TIMER/LEFT SECTION */
+.question-section {
+    width: 100%;
+    position: relative;
+}
+
+.question-count {
+    margin-bottom: 20px;
+}
+
+.question-count span {
+    font-size: 28px;
+}
+
+.question-text {
+    margin-bottom: 12px;
+}
+
+.timer-text {
+    background: rgb(230, 153, 12);
+    padding: 15px;
+    margin-top: 20px;
+    margin-right: 20px;
+    border: 5px solid rgb(255, 189, 67);
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* ANSWERS/RIGHT SECTION */
+.answer-section {
+    width: 100%;
+    @include flexBox($flexDirection: column, $justifyContent: space-between)
+}
+
+button {
+    width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #252d4a;
+    border-radius: 15px;
+    padding: 5px;
+    border: 5px solid #234668;
+    cursor: pointer;
+    @include flexBox($alignItems: center, $justifyContent: flex-start);
+}
+
+.correct {
+    background-color: #2f922f;
+}
+
+.incorrect {
+    background-color: #ff3333;
+}
+
+button:hover {
+    background-color: #555e7d;
+}
+
+button:focus {
+    outline: none;
+}
+
+button svg {
+    margin-right: 5px;
 }
