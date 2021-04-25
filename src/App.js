@@ -40,13 +40,13 @@ const App = () => {
         },
     ];
 
-    // State objects for current question and user progress through quiz
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
+    const [score, setScore] = useState(0);
 
     const handleAnswerButtonClick = (isCorrect) => {
         if (isCorrect === true) {
-            alert('This answer is correct');
+            setScore(score + 1);
         }
         const nextQuestion = currentQuestion + 1;
         if(nextQuestion < questions.length) {
@@ -60,7 +60,7 @@ const App = () => {
         <div className='app'>
             {/* Wraps output in a ternary to check if showScore is true or false based on user progress through the quiz */}
             {showScore ? (
-                <div className='score-section'>You scored 1 out of {questions.length}</div>
+                <div className='score-section'>You scored {score} out of {questions.length}</div>
             ) : (
                 <>
                     <div className='question-section'>
