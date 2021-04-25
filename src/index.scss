@@ -46,11 +46,13 @@ body {
     min-height: 100vh;
 }
 
+/* Quiz wrapper */
 .quiz {
     background-color: #EAEAEA;
     width: 450px;
     min-height: 200px;
     height: min-content;
+    border-radius: 5px;
     padding: 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
     @include flexBox($justifyContent: space-evenly);
@@ -60,7 +62,6 @@ body {
         @include flexBox($alignItems: center);
     }
 }
-
 
 /* Question section (left-hand side) */
 .question-section {
@@ -80,8 +81,6 @@ body {
         margin-bottom: 12px;
     }
 }
-
-
 
 /* Answer section (right-hand side) */
 .answer-section {
