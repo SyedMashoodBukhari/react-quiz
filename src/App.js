@@ -57,7 +57,7 @@ const App = () => {
     }
 
     return (
-        <div className='app'>
+        <div className='quiz'>
             {/* Wraps output in a ternary to check if showScore is true or false based on user progress through the quiz */}
             {showScore ? (
                 <div className='score-section'>You scored {score} out of {questions.length}</div>

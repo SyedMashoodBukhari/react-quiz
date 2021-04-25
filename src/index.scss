@@ -7,7 +7,6 @@ $opensans: "Open Sans", sans-serif;
     box-sizing: border-box;
     font-family: $opensans;
     line-height: 120%;
-    color: #FFF;
 }
 @mixin flexBox(
     $flexDirection: row,
@@ -41,30 +40,29 @@ h6 {
     line-height: 150%;
 }
 
-/* The below is added from the Github starter files */
 body {
-    background-color: #7cc6fe;
+    background-color: #222;
     @include flexBox($alignItems: center, $justifyContent: center);
     min-height: 100vh;
 }
 
-.app {
-    background-color: #252d4a;
+.quiz {
+    background-color: #EAEAEA;
     width: 450px;
     min-height: 200px;
     height: min-content;
-    border-radius: 15px;
     padding: 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
     @include flexBox($justifyContent: space-evenly);
+
+    .score-section {
+        font-size: 24px;
+        @include flexBox($alignItems: center)
+    }
 }
 
-.score-section {
-    font-size: 24px;
-    @include flexBox($alignItems: center)
-}
 
-/* QUESTION/TIMER/LEFT SECTION */
+/* Question section (left-hand side) */
 .question-section {
     width: 100%;
     position: relative;
@@ -72,27 +70,19 @@ body {
 
 .question-count {
     margin-bottom: 20px;
-}
+    font-family: $montserrat;
 
-.question-count span {
-    font-size: 28px;
+    span {
+        font-size: 28px;
+    }
 }
 
 .question-text {
     margin-bottom: 12px;
 }
 
-.timer-text {
-    background: rgb(230, 153, 12);
-    padding: 15px;
-    margin-top: 20px;
-    margin-right: 20px;
-    border: 5px solid rgb(255, 189, 67);
-    border-radius: 15px;
-    text-align: center;
-}
 
-/* ANSWERS/RIGHT SECTION */
+/* Answer section (right-hand side) */
 .answer-section {
     width: 100%;
     @include flexBox($flexDirection: column, $justifyContent: space-between)
@@ -101,13 +91,22 @@ body {
 button {
     width: 100%;
     font-size: 16px;
-    color: #ffffff;
-    background-color: #252d4a;
-    border-radius: 15px;
+    background-color: #999;
     padding: 5px;
-    border: 5px solid #234668;
+    margin: 5px 0;
+    border: 1px solid #000;
+    border-radius: 5px;
     cursor: pointer;
     @include flexBox($alignItems: center, $justifyContent: flex-start);
+
+
+
+    &:hover {
+        background-color: #fff;
+    }
+    &:focus {
+        outline: none;
+    }
 }
 
 .correct {
@@ -116,16 +115,4 @@ button {
 
 .incorrect {
     background-color: #ff3333;
-}
-
-button:hover {
-    background-color: #555e7d;
-}
-
-button:focus {
-    outline: none;
-}
-
-button svg {
-    margin-right: 5px;
 }
