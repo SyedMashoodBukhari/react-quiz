@@ -44,6 +44,7 @@ const App = () => {
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
 
+    // Increments user score if answer is correct and loads next question or score page
     const handleAnswerButtonClick = (isCorrect) => {
         if (isCorrect === true) {
             setScore(score + 1);
@@ -56,6 +57,7 @@ const App = () => {
         }
     }
 
+    // Simple function to reset states and restart quiz
     const handleRestartQuiz = () => {
         setCurrentQuestion(0);
         setShowScore(false);
