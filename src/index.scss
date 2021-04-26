@@ -61,11 +61,6 @@ body {
     padding: 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
     @include flexBox($flexDirection: column, $justifyContent: space-between);
-
-    .score-section {
-        font-size: 24px;
-        @include flexBox($alignItems: center);
-    }
 }
 
 /* Question section */
@@ -115,3 +110,32 @@ body {
 }
 
 /* Score display */
+.score-section {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    @include flexBox($flexDirection: column, $flexWrap: nowrap, $justifyContent: space-between);
+
+    p {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .restart-quiz {
+        display: block;
+        flex-grow: 1;
+        @include flexBox($alignItems: center, $alignContent: center, $justifyContent: center);
+
+        button {
+            padding: 10px;
+            font-size: 30px;
+            background-color: #9D9;
+            cursor: pointer;
+            border: 1px solid black;
+
+            &:hover {
+                background-color: #797;
+            }
+        }
+    }
+}

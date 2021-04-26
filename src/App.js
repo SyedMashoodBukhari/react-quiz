@@ -59,7 +59,7 @@ const App = () => {
     const handleRestartQuiz = () => {
         setCurrentQuestion(0);
         setShowScore(false);
-        setShowScore(0);
+        setScore(0);
     }
 
     return (
@@ -68,7 +68,9 @@ const App = () => {
             {showScore ? (
                 <div className='score-section'>
                     <p>You scored {score} out of {questions.length}</p>
-                    <button onClick={() => handleRestartQuiz()}>Restart Quiz</button>
+                    <div className='restart-quiz'>
+                        <button onClick={() => handleRestartQuiz()}>Restart Quiz</button>
+                    </div>
                 </div>
             ) : (
                 <>
