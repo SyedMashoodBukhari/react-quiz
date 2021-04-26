@@ -5,37 +5,37 @@ const App = () => {
         {
             questionText: 'What is the capital of France?',
             answerOptions: [
-                { answerText: 'New York', isCorrect: false },
-                { answerText: 'London', isCorrect: false },
-                { answerText: 'Paris', isCorrect: true },
-                { answerText: 'Dublin', isCorrect: false },
+                { answerId: 1, answerText: 'New York', isCorrect: false },
+                { answerId: 2, answerText: 'London', isCorrect: false },
+                { answerId: 3, answerText: 'Paris', isCorrect: true },
+                { answerId: 4, answerText: 'Dublin', isCorrect: false },
             ],
         },
         {
             questionText: 'Who is CEO of Tesla?',
             answerOptions: [
-                { answerText: 'Jeff Bezos', isCorrect: false },
-                { answerText: 'Elon Musk', isCorrect: true },
-                { answerText: 'Bill Gates', isCorrect: false },
-                { answerText: 'Tony Stark', isCorrect: false },
+                { answerId: 1, answerText: 'Jeff Bezos', isCorrect: false },
+                { answerId: 2, answerText: 'Elon Musk', isCorrect: true },
+                { answerId: 3, answerText: 'Bill Gates', isCorrect: false },
+                { answerId: 4, answerText: 'Tony Stark', isCorrect: false },
             ],
         },
         {
             questionText: 'The iPhone was created by which company?',
             answerOptions: [
-                { answerText: 'Apple', isCorrect: true },
-                { answerText: 'Intel', isCorrect: false },
-                { answerText: 'Amazon', isCorrect: false },
-                { answerText: 'Microsoft', isCorrect: false },
+                { answerId: 1, answerText: 'Apple', isCorrect: true },
+                { answerId: 2, answerText: 'Intel', isCorrect: false },
+                { answerId: 3, answerText: 'Amazon', isCorrect: false },
+                { answerId: 4, answerText: 'Microsoft', isCorrect: false },
             ],
         },
         {
             questionText: 'How many Harry Potter books are there?',
             answerOptions: [
-                { answerText: '1', isCorrect: false },
-                { answerText: '4', isCorrect: false },
-                { answerText: '6', isCorrect: false },
-                { answerText: '7', isCorrect: true },
+                { answerId: 1, answerText: '1', isCorrect: false },
+                { answerId: 2, answerText: '4', isCorrect: false },
+                { answerId: 3, answerText: '6', isCorrect: false },
+                { answerId: 4, answerText: '7', isCorrect: true },
             ],
         },
     ];
@@ -83,7 +83,7 @@ const App = () => {
                     </div>
                     <div className='answer-section'>
                         {questions[currentQuestion].answerOptions.map((answerOption) => (
-                            <div className='answer-option' onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</div>
+                            <div key={answerOption.answerId} className='answer-option' onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</div>
                         ))}
                     </div>
                 </>
