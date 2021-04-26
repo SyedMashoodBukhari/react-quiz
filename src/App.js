@@ -56,19 +56,25 @@ const App = () => {
         }
     }
 
+    const handleRestartQuiz = () => {
+        setCurrentQuestion(0);
+        setShowScore(false);
+        setShowScore(0);
+    }
+
     return (
         <div className='quiz'>
             {/* Wraps output in a ternary to check if showScore is true or false based on user progress through the quiz */}
             {showScore ? (
                 <div className='score-section'>
                     <p>You scored {score} out of {questions.length}</p>
-                    <button>Restart Quiz</button>
+                    <button onClick={() => handleRestartQuiz()}>Restart Quiz</button>
                 </div>
             ) : (
                 <>
                     <div className='question-section'>
                         <div className='question-count'>
-                            <span>Question {currentQuestion + 1}</span>/{questions.length}
+                            Question {currentQuestion + 1}/{questions.length}
                         </div>
                         <div className='question-text'>{questions[currentQuestion].questionText}</div>
                     </div>
