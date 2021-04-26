@@ -41,7 +41,7 @@ h6 {
 }
 
 body {
-    background-color: #222;
+    background-color: #999;
     @include flexBox($alignItems: center, $justifyContent: center);
     height: 100vh;
 }
