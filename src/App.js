@@ -74,13 +74,14 @@ const App = () => {
                 <>
                     <div className='question-section'>
                         <div className='question-count'>
-                            Question {currentQuestion + 1}/{questions.length}
+                            { /* Question {currentQuestion + 1}/{questions.length} */ }
+                            Question {currentQuestion + 1}
                         </div>
                         <div className='question-text'>{questions[currentQuestion].questionText}</div>
                     </div>
                     <div className='answer-section'>
                         {questions[currentQuestion].answerOptions.map((answerOption) => (
-                            <button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                            <div className='answer-option' onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>{answerOption.answerText}</div>
                         ))}
                     </div>
                 </>

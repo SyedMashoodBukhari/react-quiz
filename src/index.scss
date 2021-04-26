@@ -68,33 +68,34 @@ body {
     }
 }
 
-/* Question section (left-hand side) */
+/* Question section */
 .question-section {
     width: 100%;
     position: relative;
 
     .question-count {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         font-family: $montserrat;
-
-        span {
-            font-size: 28px;
-        }
+        font-size: 30px;
     }
 
     .question-text {
-        margin-bottom: 12px;
+        margin-bottom: 20px;
     }
 }
 
-/* Answer section (right-hand side) */
+/* Answer options grid) */
 .answer-section {
     width: 100%;
     flex-grow: 1;
-    @include flexBox($flexDirection: column, $flexWrap: wrap, $justifyContent: space-between);
+    //@include flexBox($flexDirection: column, $flexWrap: wrap, $justifyContent: space-between);
+    display: grid;
+    grid-template-columns: 48% 48%;
+    grid-row: auto auto;
+    grid-column-gap: 4%;
+    grid-row-gap: 4%;
 
-    button {
-        width: 50%;
+    .answer-option {
         font-size: 16px;
         background-color: #999;
         padding: 5px;
@@ -102,6 +103,7 @@ body {
         border: 1px solid #000;
         border-radius: 5px;
         cursor: pointer;
+        @include flexBox($alignItems: center, $alignContent: center, $justifyContent: center)
 
         &:hover {
             background-color: #fff;
@@ -111,3 +113,5 @@ body {
         }
     }
 }
+
+/* Score display */
